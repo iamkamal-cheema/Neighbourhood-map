@@ -13,7 +13,12 @@
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
-
+    <style>
+      .map-canvas {
+        width:100%;
+        height:600px;
+      }   
+    </style>
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -27,7 +32,7 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     
-    <div class="container">
+    <div class="container-fluid">
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">Home</a></li>
@@ -36,33 +41,36 @@
         </ul>
         <h3 class="text-muted">Neighbourhood Map</h3>
       </div>
-
-      <div class="jumbotron">
-        <h1>'Allo, 'Allo!</h1>
-        <p class="lead">Always a pleasure scaffolding your apps.</p>
-        <p><a class="btn btn-lg btn-success" href="#">Splendid!</a></p>
-      </div>
-
-      <div class="row marketing">
-        <div class="col-lg-6">
-          <h4>HTML5 Boilerplate</h4>
-          <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-          
-          <h4>Sass</h4>
-          <p>Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.</p>
-          
-          <h4>Bootstrap</h4>
-          <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
-          <h4>Modernizr</h4>
-          <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
-          
+      
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">         
+            <div class="panel-heading">Map</div>
+            <div class="panel-body">
+              <div data-bind="mapPanel" class="map-canvas" id="map"></div>
+            </div>
+          </div>
         </div>
       </div>
 
+        <script>
+          function initMap() {
+  // Create a map object and specify the DOM element for display.
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 42.30177, lng: -83.07242},
+    scrollwheel: false,
+    zoom: 8
+  });
+}
+        </script>
+      
+     
+
       <div class="footer">
-        <p>♥ from the Yeoman team</p>
+        <p>♥ from Kamal</p>
       </div>
-    </div>
+      </div>
+    
     
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
@@ -77,6 +85,9 @@
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/knockout/dist/knockout.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvBAE5KVrIgyNXn5PKu3LANbYgvV47QRY&callback=initMap"
+    async defer></script>
     <!-- endbower -->
     <!-- endbuild -->
     
