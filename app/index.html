@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
     <title>Windsor Neighourhood</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    <link href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel=
+    "stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-
-
-  
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel=
+    'stylesheet'>
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+    </script>
+    <script src=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js">
+    </script>
 </head>
 
 <body>
-    
     <div class="container-fluid">
         <div class="row">
             <div class="col-xs-12 text-center">
-                <h1 class="heading">Windsor <small>Neighourhood</small></h1>
+                <h1 class="header">Windsor <small>Neighourhood</small></h1>
             </div>
         </div>
         <!-- /input-group -->
-
         <!--Contents Panel -->
+
+
         <div class="row">
             <div class="col-lg-4 col-xs-12">
-                <input id="search" type="search" data-bind="value: query, valueUpdate: 'keyup'" placeholder="Search Locations" autocomplete="off">
+                <input autocomplete="off" data-bind=
+                "value: query, valueUpdate: 'keyup'" id="search" placeholder=
+                "Search Locations" type="search">
 
                 <ul class="list-group" data-bind="foreach: searchResults">
-                    <li class="list-group-item col-xs-6 col-md-12" id="list" data-bind="text:name, click:$parent.list"></li>
+                    <li class="list-group-item col-xs-6 col-md-12" data-bind=
+                    "text:name, click:$parent.list" id="list">
+                    </li>
                 </ul>
             </div>
             <!-- Places Closing Div -->
-            <div class="col-sm-8 col-xs-8 img-responsive" id="map-canvas"></div>
-            
+
+
+            <div class="col-sm-8 col-xs-8 img-responsive" id="map-canvas">
+            </div>
         </div>
     </div>
-
-    <script type="text/javascript" src="js/knockout-3.4.0.js"></script>
-    <script type="text/javascript" src="scripts/main.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCiCVShMaFxre13ZU7DGRsclu9iY_X5-cg&callback=initializeMap" onerror="mapError()"></script>
-
-
+    <script src="js/knockout-3.4.0.js" type="text/javascript">
+    </script> 
+    <script src="scripts/main.js" type="text/javascript">
+    </script> 
+    <script async defer onerror="mapError()" src=
+    "https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyCiCVShMaFxre13ZU7DGRsclu9iY_X5-cg&callback=initializeMap">
+    </script>
 </body>
-
 </html>

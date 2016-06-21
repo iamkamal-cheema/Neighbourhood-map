@@ -1,6 +1,6 @@
 # Neighbourhood Map
 
-A beutiful web application made using Google Map Api's along with yelp and wikipedia Api's. To address the separation of concerns, knockout.js library is used.
+A beutiful web application made using Google Map Api's along with wikipedia Api's. To address the separation of concerns, knockout.js library is used.
 
 ### Installation
 
@@ -22,4 +22,9 @@ After setting the development environment, we can add the kncokout.js library to
 bower install knockout 
 ```
 
-After this put in the path to knockout.js in yout index.html file.Now we are ready to get started.
+After this put in the path to knockout.js in your index.html file.Now we are ready to get started.
+
+### Resources
+- Udacity Forums
+- <http://knockoutjs.com/>
+- https://github.com/lacyjpr/neighborhood
