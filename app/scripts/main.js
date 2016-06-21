@@ -1,8 +1,9 @@
 var map, marker, infowindow;
 
-//Model Information
+//Information for the model
+// List of places to be shown in view, along with geo location information
 
-var locations = [ //Location Data
+var places = [ 
     {
         name: 'Windsor Sculpture Park',
         lat: 42.314831,
@@ -40,7 +41,9 @@ var locations = [ //Location Data
 var ViewModel = function () {
     var self = this;
 
-    function placeInfo(data) { //Knockout Obsrvables
+    function locationInfo(data) { 
+
+        //Knockout Obsrvables
         self.name = ko.observable(data.name);
         self.url = ko.obsrvable(data.url);
         self.lat = ko.observable(data.lat);
@@ -50,9 +53,13 @@ var ViewModel = function () {
         });
     }
 
-    self.allPlaces = ko.observableArray(locations); //Links location data to an observable
 
-    self.allPlaces().forEach(function (place) { //Creates markers and infowindows for each location on the map
+    //Location data is linked to an observable
+    self.allPlaces = ko.observableArray(places); 
+
+    //Using foreach to put markers and infowindows for each location on the google map
+
+    self.allPlaces().forEach(function (place) { 
         marker = new google.maps.Marker({
             map: map,
             position: new google.maps.LatLng(place.lat, place.lng),
@@ -61,9 +68,11 @@ var ViewModel = function () {
             icon: 'images/icon.png',
         });
         place.marker = marker;
-        place.marker.addListener('click', toggleBounce);
+        place.marker.addListener('click', placeBounce);
 
-        function toggleBounce() { //Function to bounce marker when clicked.
+        //Bounce animation effect is achieved using following function
+
+        function placeBounce() { 
             if (place.marker.getAnimation() !== null) {
                 place.marker.setAnimation(null);
             } else {
@@ -73,12 +82,14 @@ var ViewModel = function () {
                 }, 1000);
             }
         }
-        google.maps.event.addListener(place.marker, 'click', function () { //Opens, populates and bounces infowindow when marker is clicked.
+
+        //Infowindow functionality along with animation when place or marker is clicked
+        google.maps.event.addListener(place.marker, 'click', function () { 
             if (!infowindow) {
                 infowindow = new google.maps.InfoWindow();
             }
 
-            //Wikipedia API
+            //Wikipedia API to show related article
             var content;
             var infoNames = place.name;
             var infoURL = place.url;
@@ -86,7 +97,7 @@ var ViewModel = function () {
             var wikiUrl = "https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search=" + urlNames + "&limit=1&redirects=return&format=json";
 
             self.apiTimeout = setTimeout(function () {
-                alert('ERROR: Failed to load data');
+                alert('ERROR: Wikipedia failed to load articles');
             }, 5000);
 
             self.apiTimeout;
@@ -105,46 +116,53 @@ var ViewModel = function () {
                             infowindow.setContent(content);
                         }
                     } else {
-                        content = '<div class="info">' + '<h3 class="text-center" id="infoTitle">' + infoNames + '</h3>' + '<p>' + "Sorry, No Articles Found on Wikipedia" + '</p>' + '</div>';
+                        content = '<div class="info">' + '<h3 class="text-center" id="infoTitle">' + infoNames + '</h3>' + '<p>' + "Sorry, Wikipedia do not have any articles on the subject" + '</p>' + '</div>';
                         infowindow.setContent(content);
                     }
+
+                    //To close infowindow after 7 seconds
                     infowindow.open(map, place.marker);
-                    setTimeout(function () { //Closes infowindow after 9 seconds.
+                    setTimeout(function () { 
                         infowindow.close();
-                    }, 9000);
+                    }, 7000);
                 },
                 error: (function () {
-                    content = '<div class="info">' + '<h3 class="text-center" id="infoTitle">' + infoNames + '</h3>' + '<p>' + "Failed to reach Wikipedia Servers, please try again" + '</p>' + '</div>';
+                    content = '<div class="info">' + '<h3 class="text-center" id="infoTitle">' + infoNames + '</h3>' + '<p>' + "Something went wrong with Wikipedia Servers" + '</p>' + '</div>';
                     infowindow.setContent(content);
                 })
             });
 
         });
-    }); //End ForEach
+    }); 
 
+    //Link the list with allplaces marker to present the information when clicked
     self.list = function (place, marker) {
-        google.maps.event.trigger(place.marker, 'click'); //Links list to allPlaces marker information, so both have the same content.
+        google.maps.event.trigger(place.marker, 'click'); 
     };
-    // Search functionality on location names
-    self.query = ko.observable(''); //Creates an observable for the search bar
+    // Search functionality
+    self.query = ko.observable(''); 
 
     self.searchResults = ko.computed(function () {
         return ko.utils.arrayFilter(self.allPlaces(), function (list) {
-            //Match search with items in sortedLocations() observable array
+            //Match search with places and filter
             var listFilter = list.name.toLowerCase().indexOf(self.query().toLowerCase()) >= 0;
-            if (listFilter) { //if user input matches any of the brewery names, show only the matches
+            //show only the correct matches
+            if (listFilter) { 
                 list.marker.setVisible(true);
-            } else {
-                list.marker.setVisible(false); //hide markers and list items that do not match results
+            } 
+            //hide unmatched markers and list items
+            else {
+                list.marker.setVisible(false); 
             }
 
             return listFilter;
 
         });
     });
-}; //ViewModel End
+}; 
+//ViewModel finished
 
-//function initializeMap() { //Initializes map, marker, and infowindow data
+//Initializes map, marker, and infowindow data
 function initializeMap() {
     //Map Data
     map = new google.maps.Map(document.getElementById('map-canvas'), {
