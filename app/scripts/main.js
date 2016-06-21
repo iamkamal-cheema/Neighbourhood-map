@@ -193,7 +193,7 @@ function initializeMap() {
             lat: 42.314,
             lng: -83.060
         },
-        zoom: 13,
+        zoom: 12,
         draggable: false,
         scrollwheel: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
