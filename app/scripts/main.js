@@ -163,8 +163,8 @@ function initializeMap() {
 
   
 //Alerts user of an error with google.
-function googleError() {
-    alert("Google Has Encountered An Error.  Please Try Again Later");
+function mapError() {
+    alert("Google Maps Encountered an Error.  Please Visit us Later");
     console.log('error');
 }
 
