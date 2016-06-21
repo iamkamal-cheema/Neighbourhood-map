@@ -31,7 +31,7 @@ After this put in the path to knockout.js in your index.html file.Now we are rea
 - <https://developers.google.com/maps/documentation/javascript/>
 - <https://discussions.udacity.com/c/nd001-project-5-neighborhood-map-project/neighborhood-map-project>
 - <https://discussions.udacity.com/t/trouble-with-infowindows-and-contentstring/39853>
-- <https://github.com/Cshields88/Udacity-FEND-NeighborhoodMap>
+- <https://github.com/Cshields88/Udacity-FEND-Neighborhood-Map>
 - <https://discussions.udacity.com/t/map-only-taking-half-the-screen/38989>
 - <https://discussions.udacity.com/t/toggle-list-button-weirdness/40245/2>
 - <https://discussions.udacity.com/t/handling-google-maps-in-async-and-fallback/34282>
