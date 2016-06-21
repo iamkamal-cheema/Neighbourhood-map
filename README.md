@@ -5,7 +5,7 @@ A beutiful web application made using Google Map Api's along with wikipedia Api'
 ### Installation
 
   - clone this repository or download
-  - open index.html in your browser of choice
+  - open app/index.html in your browser of choice
   - Magic
 
 ### Tech
