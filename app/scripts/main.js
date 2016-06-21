@@ -58,7 +58,7 @@ var ViewModel = function () {
             position: new google.maps.LatLng(place.lat, place.lng),
             title: place.name,
             animation: google.maps.Animation.DROP,
-            icon: 'icons/icon.png',
+            icon: 'images/icon.png',
         });
         place.marker = marker;
         place.marker.addListener('click', toggleBounce);
