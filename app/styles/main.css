@@ -1,0 +1,102 @@
+#search {
+    width: 100%;
+    padding-bottom: 10px;
+    font-family: font-family: 'Arvo', serif;
+    font-size: 24px;
+}
+
+#list {
+    font-family: font-family: 'Arvo', serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #3D9970;
+}
+
+#map-canvas {
+    width: 760px;
+    height: 620px;
+    background-color: #ccc;
+    display: block;
+}
+
+.heading {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 60px;
+    color: #3D9970;
+    padding-bottom: 15px;
+}
+
+.places {
+    font-family: font-family: 'Arvo', serif;
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.locations {
+    width: 100%;
+    font-size: 25px;
+    font-family: font-family: 'Arvo', serif;
+    font-weight: 600;
+}
+
+
+
+.info {
+    width: 450px;
+    text-align: center;
+}
+
+#info {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#infoTitle {
+    color: #3D9970;
+}
+
+
+
+@media only screen and (max-width:800px) {
+    body {
+        padding-left: 25px;
+        padding-right: 20px;
+    }
+    #map-canvas {
+        width: 100%;
+        margin-top: 30px;
+        padding-bottom: 20px;
+    }
+    #list {
+        font-size: 10px;
+        font-weight: 600;
+        margin-top: 5px;
+    }
+    .heading {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 33px;
+        color: #F01124;
+        padding-bottom: 15px;
+    }
+    #search {
+        width: 80%;
+        margin-left: 40px;
+        font-family: font-family: 'Arvo', serif;
+        font-size: 12px;
+    }
+    .info {
+        width: 150px;
+        height: 150px;
+    }
+    #info {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+    }
+   
+    #infoTitle {
+        color: #3D9970;
+        font-size: 14px;
+    }
+}

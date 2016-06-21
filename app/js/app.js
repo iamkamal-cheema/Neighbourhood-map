@@ -4,37 +4,65 @@ var map, marker, infowindow;
 
 var locations = [ //Location Data
     {
-        name: 'Windsor Sculpture Park',
-        lat: 42.314831,
-        lng: -83.060117,
-        url: 'http://www.citywindsor.ca/residents/culture/windsor-sculpture-park/pages/windsor-sculpture-park.aspx'
+        name: 'Founders Brewing Co.',
+        lat: 42.9584,
+        lng: -85.6742,
+        url: 'http://www.foundersbrewing.com'
         },
     {
-        name: 'Ambassador Bridge',
-        lat: 42.312,
-        lng: -83.074,
-        url: 'http://www.ambassadorbridge.com'
+        name: 'Bells Brewery',
+        lat: 42.285110,
+        lng: -85.449972,
+        url: 'http://www.bellsbeer.com'
         },
     {
-        name: 'Detroit River',
-        lat: 42.300,
-        lng: -83.090,
-        url: 'hhttp://www.detroitriver.org'
+        name: 'New Holland Brewing Co.',
+        lat: 42.790067,
+        lng: -86.104204,
+        url: 'http://www.newhollandbrew.com'
         },
     {
-        name: 'The Manchester',
-        lat: 42.31480,
-        lng: -83.03682,
-        url: 'http://themanchester.ca/'
+        name: 'Shorts Brewing Co.',
+        lat: 44.976315,
+        lng: -85.210035,
+        url: 'http://www.shortsbrewing.com'
         },
     {
-        name: 'Caesars Windsor',
-        lat: 42.320375,
-        lng: -83.033764,
-        url: 'http://www.caesarswindsor.com/'
+        name: 'Dark Horse Brewery',
+        lat: 42.266260,
+        lng: -84.963444,
+        url: 'http://www.darkhorsebrewery.com'
+        },
+    {
+        name: 'Kuhnhenn Brewing Company',
+        lat: 42.527963,
+        lng: -83.046753,
+        url: 'http://www.kbrewery.com'
+        },
+    {
+        name: 'Jolly Pumpkin Artisan Ales',
+        lat: 42.323838,
+        lng: -83.878447,
+        url: 'http://www.jollypumpkin.com'
+        },
+    {
+        name: 'Arcadia Brewing Co.',
+        lat: 42.295278,
+        lng: -85.570512,
+        url: 'http://www.arcadiaales.com'
+        },
+    {
+        name: 'Detroit Beer Company',
+        lat: 42.336136,
+        lng: -83.048882,
+        url: 'http://www.detroitbeerco.com'
+        },
+    {
+        name: 'North Peak Brewing Company',
+        lat: 44.765242,
+        lng: -85.628562,
+        url: 'http://www.northpeak.net'
         }
-    
-    
     ];
 
 var ViewModel = function () {
@@ -58,7 +86,7 @@ var ViewModel = function () {
             position: new google.maps.LatLng(place.lat, place.lng),
             title: place.name,
             animation: google.maps.Animation.DROP,
-            icon: 'icons/icon.png',
+            icon: 'icons/beer.png',
         });
         place.marker = marker;
         place.marker.addListener('click', toggleBounce);
@@ -149,10 +177,10 @@ function initializeMap() {
     //Map Data
     map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: {
-            lat: 42.314,
-            lng: -83.060
+            lat: 45.5978,
+            lng: -84.7675
         },
-        zoom: 13,
+        zoom: 6,
         draggable: false,
         scrollwheel: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -161,10 +189,8 @@ function initializeMap() {
     ko.applyBindings(new ViewModel());
 }
 
-  
 //Alerts user of an error with google.
 function googleError() {
     alert("Google Has Encountered An Error.  Please Try Again Later");
     console.log('error');
 }
-
