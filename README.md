@@ -15,6 +15,21 @@ The application has following integral components:
 > This simple webapp take away the pain to manually set up the development environment as it uses various tools such as gulp, browser-sync and one-click production ready website.
 >  The idea is that everything becomes simple and straight forward as it comes with bootstrap and Jquery preinstalled for you.
 
+### Use Gulp to do some optional tasks:
+
+- Minify CSS,
+- Uglify JS,
+- Minify HTML
+
+Gulp comes with yeoman and you do not have to write your own gulpfile.Gulp help us automate tasks.
+
+### Sources to  know more about gulp:
+
+- <https://teamtreehouse.com/library/gulp-basics>
+- <https://www.udacity.com/course/web-tooling-automation--ud892>
+
+
+
 
 After setting the development environment, we can add the kncokout.js library to our project, typing the following in terminal:
 

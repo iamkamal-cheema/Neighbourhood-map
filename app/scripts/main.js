@@ -106,8 +106,8 @@ var ViewModel = function() {
                 self.apiTimeout;
                 $.ajax({
                     url: wikiUrl,
-                    dataType: "jsonp",
-                    success: function(response) {
+                    dataType: "jsonp"})
+                    .done (function(response) {
                         clearTimeout(self.apiTimeout);
                         var articleList = response[
                             1];
@@ -133,17 +133,20 @@ var ViewModel = function() {
                                 '<p>' +
                                 "Sorry, Wikipedia do not have any articles on the subject" +
                                 '</p>' + '</div>';
-                            infowindow.setContent(
-                                content);
+                            
                         }
 
-                        //To close infowindow after 7 seconds
+                    //To close infowindow after 7 seconds
+                        
+                    })//success function
+                    .always(function(){
+                        infowindow.setContent(content);
                         infowindow.open(map, place.marker);
                         setTimeout(function() {
                             infowindow.close();
                         }, 7000);
-                    },
-                    error: (function() {
+                    })
+                    .fail (function() {
                         content =
                             '<div class="info">' +
                             '<h3 class="text-center" id="infoTitle">' +
@@ -152,10 +155,10 @@ var ViewModel = function() {
                             "Something went wrong with Wikipedia Servers" +
                             '</p>' + '</div>';
                         infowindow.setContent(content);
-                    })
-                });
+                    });//error
+                //ajax
 
-            });
+            });//addeventlistner
     });
 
     //Link the list with allplaces marker to present the information when clicked

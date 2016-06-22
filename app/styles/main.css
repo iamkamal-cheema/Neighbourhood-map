@@ -8,12 +8,12 @@
 #search {
     width: 100%;
     padding-bottom: 10px;
-    font-family: font-family: 'Arvo',serif;
+    font-family:'Arvo',serif;
     font-size: 20px;
 }
 
 #list {
-    font-family: font-family: 'Arvo',serif;
+    font-family:'Arvo',serif;
     font-weight: 600;
     font-size: 24px;
     color: #3D9970;
@@ -27,7 +27,7 @@
 }
 
 .places {
-    font-family: font-family: 'Arvo',serif;
+    font-family:'Arvo',serif;
     font-weight: 600;
     font-size: 24px;
 }
@@ -35,7 +35,7 @@
 .locations {
     width: 100%;
     font-size: 25px;
-    font-family: font-family: 'Arvo',serif;
+    font-family:'Arvo',serif;
     font-weight: 600;
 }
 
@@ -82,7 +82,7 @@
     #search {
         width: 80%;
         margin-left: 40px;
-        font-family: font-family: 'Arvo',serif;
+        font-family:'Arvo',serif;
         font-size: 12px;
     }
 
